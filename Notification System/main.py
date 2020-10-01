@@ -2,6 +2,7 @@ from plyer import notification
 import requests
 from bs4 import BeautifulSoup
 import time
+import json #for json response
 
 
 
@@ -9,13 +10,14 @@ def notifyme(title,message):
     notification.notify(
         title=title,
         message=message,
-        app_icon="D:\CovidNotification\icon.ico",
+        app_icon="\icon.ico",  #Generalised path
         timeout=10
     )
 
 def getData(url):
        r= requests.get(url)
        return r.text
+       #return json.dumps(r) #json response rater than normal text dict
 
 
 if __name__ == "__main__":
